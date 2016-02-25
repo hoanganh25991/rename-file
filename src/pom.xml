@@ -1,0 +1,5 @@
+<project>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-lang3</artifactId>
+    <modelVersion>3.0</modelVersion>
+</project>

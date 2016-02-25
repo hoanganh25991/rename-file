@@ -17,7 +17,7 @@ public class RenameFileInDirectory {
         this.recursiveDepth = recursiveDepth;
     }
 
-    public void recursive(String filePath){
+    private void recursive(String filePath){
         File rootFile = new File(filePath);
         if(rootFile.isDirectory() && (recursiveDepth >= 1)){
             File[] listFiles = rootFile.listFiles();
@@ -35,14 +35,14 @@ public class RenameFileInDirectory {
     }
 
     private static final Pattern HAS_PUNCTUATION_SPACE = Pattern.compile("[\\p{Punct}\\s]");
-    public void rename(File file) {
+    private void rename(File file) {
         String filePath = file.getParent();
         String fileName = file.getName();
         String fileBaseName = FilenameUtils.getBaseName(fileName);
         String fileExtension = FilenameUtils.getExtension(fileName);
 
         String newFileBaseName = fileBaseName.toLowerCase().replaceAll(HAS_PUNCTUATION_SPACE.pattern(), "-");
-        String newFileName = "";
+        String newFileName;
         if(file.isDirectory()){
             newFileName = newFileBaseName;
         }else{
